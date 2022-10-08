@@ -12,6 +12,7 @@ const port = process.env.PORT || 5000;
 // middleware
 app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/private", require("./routes/private"));
 // Error handler (Should be last piece of middleware)
 app.use(ErrorHandler);
 
