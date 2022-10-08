@@ -1,16 +1,19 @@
 require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 const connectDB = require("./config/db");
+const ErrorHandler = require("./middilewares/error");
 
 // connect db
 connectDB();
-
+//
 const app = express();
 const port = process.env.PORT || 5000;
 
 // middleware
 app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
+// Error handler (Should be last piece of middleware)
+app.use(ErrorHandler);
 
 const server = app.listen(port, () => {
   console.log(`server listening on port ${port}`);
