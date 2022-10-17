@@ -6,7 +6,7 @@ exports.protect = async (req, res, next) => {
   let token;
 
   if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
-    // Bearer 562348sdfs65f84874sfd
+    // Bearer 562348sds65f84874sfd
     token = req.headers.authorization.split(" ")[1];
   }
 
