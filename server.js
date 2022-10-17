@@ -1,5 +1,6 @@
 require("dotenv").config({ path: "./config.env" });
 const express = require("express");
+const cors = require("cors");
 const connectDB = require("./config/db");
 const ErrorHandler = require("./middilewares/error");
 
@@ -11,6 +12,7 @@ const port = process.env.PORT || 5000;
 
 // middleware
 app.use(express.json());
+app.use(cors());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/private", require("./routes/private"));
 // Error handler (Should be last piece of middleware)
